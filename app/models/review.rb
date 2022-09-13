@@ -12,6 +12,8 @@ class Review < ApplicationRecord
     message: "must be between 1 and 5"
   }
 
+  scope :past_n_days, ->(days) { where("created_at >= ?" , days.days.ago) }
+
   def stars_as_percent
     return 0 if stars.nil?
     (stars / 5.0) * 100.0

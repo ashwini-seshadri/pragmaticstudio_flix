@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :reviews
 
   resource :session, only: [:new, :create, :destroy]
+
+  get "movies/filter/:filter" => "movies#index", as: :filtered_movies
   
 
   resources :movies do
