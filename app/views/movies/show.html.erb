@@ -49,14 +49,23 @@
   <aside>
     <% if @fans.present? %>
       <h4>Fans</h4>
-        <ul>
-          <% @fans.each do |user| %>
-            <li>
-              <%= profile_image(user, size: 2) %>
-              <%= link_to user.name, user %>
-            </li>
-          <% end %>
-        </ul>
+      <ul>
+        <% @fans.each do |user| %>
+          <li>
+            <%= profile_image(user, size: 2) %>
+            <%= link_to user.name, user %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if @genres.present? %>
+      <h4>Genres</h4>
+      <ul>
+        <% @genres.each do |g| %>
+          <li><%= g.name %></li>
+        <% end %>
+      </ul>
     <% end %>
   </aside>
 </section>
